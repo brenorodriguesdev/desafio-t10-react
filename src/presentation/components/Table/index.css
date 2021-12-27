@@ -1,0 +1,9 @@
+table, th, td {
+    border: 1px solid #d8d8d8;
+    color: #868686;
+    text-align: center;
+    width: 35vw;
+    height: 5vh;
+    margin-right: 5rem;
+    margin-top: 2em;
+}
