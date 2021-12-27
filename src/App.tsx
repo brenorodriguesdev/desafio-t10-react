@@ -1,9 +1,7 @@
-import { HomePage } from './presentation/pages';
+import { makeHomePage } from './main/factories/pages/HomePage';
 
 function App() {
-    return (
-        <HomePage />
-    );
+    return makeHomePage()
 }
 
 export default App;

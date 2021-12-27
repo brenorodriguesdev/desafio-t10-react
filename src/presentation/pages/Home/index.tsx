@@ -1,7 +1,12 @@
 import './index.css';
 import { HeaderComponent, TableComponent } from '../../components';
+import { GetAllParticipationUseCase } from '../../../domain/useCases/get-all-participation';
 
-function HomePage() {
+interface HomePageProps {
+    getAllParticipationUseCase: GetAllParticipationUseCase
+}
+
+function HomePage({ getAllParticipationUseCase }: HomePageProps) {
     return (
         <div className="main">
             <HeaderComponent />
