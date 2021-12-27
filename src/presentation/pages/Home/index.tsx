@@ -3,6 +3,7 @@ import { HeaderComponent, TableComponent } from '../../components';
 import { GetAllParticipationUseCase } from '../../../domain/useCases/get-all-participation';
 import { useContext, useEffect } from 'react';
 import { ParticipationContext } from '../../contexts/participations';
+import { makeCreateParticipationService } from '../../../main/factories/services/create-participation';
 
 interface HomePageProps {
     getAllParticipationUseCase: GetAllParticipationUseCase
@@ -27,7 +28,7 @@ function HomePage({ getAllParticipationUseCase }: HomePageProps) {
 
     return (
         <div className="main">
-            <HeaderComponent />
+            <HeaderComponent createParticipationUseCase={makeCreateParticipationService()} />
             <main className="container">
                 <h1>DATA</h1>
                 <p className="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
