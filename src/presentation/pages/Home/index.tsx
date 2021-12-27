@@ -1,12 +1,30 @@
 import './index.css';
 import { HeaderComponent, TableComponent } from '../../components';
 import { GetAllParticipationUseCase } from '../../../domain/useCases/get-all-participation';
+import { useContext, useEffect } from 'react';
+import { ParticipationContext } from '../../contexts/participations';
 
 interface HomePageProps {
     getAllParticipationUseCase: GetAllParticipationUseCase
 }
 
 function HomePage({ getAllParticipationUseCase }: HomePageProps) {
+
+    const { setParticipations } = useContext(ParticipationContext)
+
+    useEffect(() => {
+        async function getAllParticipations() {
+            try {
+                const participations = await getAllParticipationUseCase.get()
+                setParticipations(participations)
+            } catch (error) {
+                setParticipations([])
+            }
+        }
+
+        getAllParticipatios()
+    })
+        
     return (
         <div className="main">
             <HeaderComponent />
