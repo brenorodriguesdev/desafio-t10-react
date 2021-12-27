@@ -24,7 +24,7 @@ function HomePage({ getAllParticipationUseCase }: HomePageProps) {
 
         getAllParticipations()
     })
-        
+
     return (
         <div className="main">
             <HeaderComponent />
