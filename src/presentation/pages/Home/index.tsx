@@ -22,7 +22,7 @@ function HomePage({ getAllParticipationUseCase }: HomePageProps) {
             }
         }
 
-        getAllParticipatios()
+        getAllParticipations()
     })
         
     return (
