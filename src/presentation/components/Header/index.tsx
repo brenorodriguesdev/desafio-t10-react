@@ -1,4 +1,7 @@
+import { useContext } from 'react';
+import { toast } from 'react-toastify';
 import { CreateParticipationUseCase } from '../../../domain/useCases/create-participation';
+import { ParticipationContext } from '../../contexts/participations';
 import './index.css';
 
 interface HeaderComponentProps {
@@ -6,6 +9,9 @@ interface HeaderComponentProps {
 }
 
 function HeaderComponent({ createParticipationUseCase }: HeaderComponentProps) {
+
+  const { participations, setParticipations } = useContext(ParticipationContext)
+
 
   async function onSend(event: any) {
     try {
@@ -18,8 +24,36 @@ function HeaderComponent({ createParticipationUseCase }: HeaderComponentProps) {
         lastName,
         participation
       })
+
+      toast.success('Participation sent', {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+
+      setParticipations([...participations,
+      {
+        firstName,
+        lastName,
+        participation,
+        id: participations.length + 1
+      }])
     }
-    catch (error) {
+    catch (error: any) {
+
+      toast.warn(error.message, {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
 
     }
   }

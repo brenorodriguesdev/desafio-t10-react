@@ -4,12 +4,15 @@ import { GetAllParticipationUseCase } from '../../../domain/useCases/get-all-par
 import { useContext, useEffect } from 'react';
 import { ParticipationContext } from '../../contexts/participations';
 import { makeCreateParticipationService } from '../../../main/factories/services/create-participation';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface HomePageProps {
     getAllParticipationUseCase: GetAllParticipationUseCase
 }
 
 function HomePage({ getAllParticipationUseCase }: HomePageProps) {
+
 
     const { setParticipations } = useContext(ParticipationContext)
 
@@ -24,7 +27,7 @@ function HomePage({ getAllParticipationUseCase }: HomePageProps) {
         }
 
         getAllParticipations()
-    }, [])
+    }, [getAllParticipationUseCase, setParticipations])
 
     return (
         <div className="main">
@@ -42,6 +45,7 @@ function HomePage({ getAllParticipationUseCase }: HomePageProps) {
 
                 </div>
             </main>
+            <ToastContainer />
         </div>
     );
 }
