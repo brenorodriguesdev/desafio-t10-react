@@ -8,23 +8,28 @@ function TableComponent() {
 
     return (
         <table cellSpacing={0} cellPadding={0} className="table">
-            <tr>
-                <th></th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Participation</th>
-            </tr>
             
-            {
-                participations.map(participation => (
-                    <tr>
-                        <td>{participation.id}</td>
-                        <td>{participation.firstName}</td>
-                        <td>{participation.lastName}</td>
-                        <td>{participation.participation}</td>
-                    </tr>
-                ))
-            }
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Participation</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {
+                    participations.map(participation => (
+                        <tr key={participation.id}>
+                            <td>{participation.id}</td>
+                            <td>{participation.firstName}</td>
+                            <td>{participation.lastName}</td>
+                            <td>{participation.participation}</td>
+                        </tr>
+                    ))
+                }
+            </tbody>
 
         </table>
     );
