@@ -63,7 +63,7 @@ function HeaderComponent({ createParticipationUseCase }: HeaderComponentProps) {
       <form>
         <input className="input" placeholder="First name" name="firstName" id="firstName" />
         <input className="input" placeholder="Last name" name="lastName" id="lastName" />
-        <input className="input" placeholder="Participation" name="participation" id="participation" />
+        <input className="input" placeholder="Participation" name="participation" id="participation" type="number" />
         <input type="submit" className="button" value="SEND" />
       </form>
     </header>
