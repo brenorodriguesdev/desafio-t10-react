@@ -6,8 +6,6 @@ const makeResponse = () => ({ data: { status: 200, message: 'any_message ' } })
 const makeResponseError = () => ({ response: { data: { message: 'any_message ' }} })
 
 jest.mock('../main/config/axios')
-jest.spyOn(api, 'get').mockResolvedValueOnce(makeResponse())
-
 
 const makeData = (): ParticipationModel => ({
     firstName: 'firstName',
