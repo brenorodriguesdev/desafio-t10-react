@@ -21,7 +21,7 @@ function TableComponent() {
             <tbody>
                 {
                     participations.map(participation => (
-                        <tr key={participation.id}>
+                        <tr key={participation.id} className="item">
                             <td>{participation.id}</td>
                             <td>{participation.firstName}</td>
                             <td>{participation.lastName}</td>

@@ -6,7 +6,6 @@ interface ParticipationContextProps {
     setParticipations: (participations: ParticipationModel[]) => void
 
     grafico: any
-    setGrafico: (grafico: any) => void
 }
 const ParticipationContext = createContext<ParticipationContextProps>({} as ParticipationContextProps)
 
@@ -40,14 +39,13 @@ function ParticipationProvider({ children }: any) {
             series,
         })
 
-    }, [[participations]])
+    }, [participations])
 
     return (
         <ParticipationContext.Provider value={{
             participations,
             setParticipations,
             grafico,
-            setGrafico
         }}>
             {children}
         </ParticipationContext.Provider>

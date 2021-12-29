@@ -38,4 +38,10 @@ describe('GetAllParticipationService', () => {
         const promise = sut.get()
         await expect(promise).rejects.toThrow()
     })
+
+    test('Garantir que se tudo ocorrer como planejado retornar response', async () => {
+        const { sut } = makeSut()
+        const data = await sut.get()
+        expect(data).toEqual({ message: 'any_response' })
+    })
 })

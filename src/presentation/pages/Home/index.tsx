@@ -1,12 +1,11 @@
 import './index.css';
-import { HeaderComponent, TableComponent } from '../../components';
+import { HeaderComponent, TableComponent, ChartComponent } from '../../components';
 import { GetAllParticipationUseCase } from '../../../domain/useCases/get-all-participation';
 import { useContext, useEffect } from 'react';
 import { ParticipationContext } from '../../contexts/participations';
 import { makeCreateParticipationService } from '../../../main/factories/services/create-participation';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Charts from 'react-apexcharts';
 
 interface HomePageProps {
     getAllParticipationUseCase: GetAllParticipationUseCase
@@ -15,7 +14,7 @@ interface HomePageProps {
 function HomePage({ getAllParticipationUseCase }: HomePageProps) {
 
 
-    const { setParticipations, grafico } = useContext(ParticipationContext)
+    const { setParticipations } = useContext(ParticipationContext)
 
     useEffect(() => {
         async function getAllParticipations() {
@@ -41,9 +40,7 @@ function HomePage({ getAllParticipationUseCase }: HomePageProps) {
 
                     <TableComponent />
 
-                    <div className="chart">
-                        <Charts series={grafico.series} options={grafico.options} type="donut" width="350" />
-                    </div>
+                    <ChartComponent />
 
                 </div>
             </main>
